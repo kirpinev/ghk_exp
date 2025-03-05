@@ -203,7 +203,7 @@ export const App = () => {
     const interval = setInterval(() => {
       setSelectedPerson(getRandomElement(array)); // Перебираем поздравления
       i++;
-    }, 100);
+    }, 300);
 
     setTimeout(() => {
       clearInterval(interval);
@@ -331,9 +331,10 @@ export const App = () => {
             <Gap size={16} />
 
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5 }}
+              key={selectedPerson.key}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
               style={{ textAlign: "center" }}
             >
               <Typography.TitleResponsive
