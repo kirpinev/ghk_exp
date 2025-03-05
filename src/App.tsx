@@ -163,6 +163,7 @@ export const App = () => {
   const [selectedPerson, setSelectedPerson] = useState<Person>(
     getRandomElement(people),
   );
+  const [loading, setLoading] = useState(false);
   const [isOneMoreClicked, setIsOneMoreClicked] = useState(false);
 
   const calculateTimeLeft = () => {
@@ -197,6 +198,7 @@ export const App = () => {
   const handleClick = () => {
     const array = people.filter((p) => p.key !== selectedPerson.key);
 
+    setLoading(true);
     setIsOneMoreClicked(true);
 
     let i = 0;
@@ -209,6 +211,7 @@ export const App = () => {
       clearInterval(interval);
       const randomGreeting = getRandomElement(array);
       setSelectedPerson(randomGreeting);
+      setLoading(false);
     }, 2500);
   };
 
@@ -399,6 +402,7 @@ export const App = () => {
                 block
                 view="primary"
                 size="l"
+                loading={loading}
                 onClick={() => {
                   setStep(3);
                 }}
@@ -406,7 +410,14 @@ export const App = () => {
                 К Подарку
               </ButtonMobile>
             ) : (
-              <ButtonMobile block view="primary" size="l" onClick={handleClick}>
+              <ButtonMobile
+                block
+                view="primary"
+                size="l"
+                onClick={handleClick}
+                loading={loading}
+                disabled={loading}
+              >
                 А-еще!
               </ButtonMobile>
             )}
