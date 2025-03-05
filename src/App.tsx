@@ -212,7 +212,7 @@ export const App = () => {
       const randomGreeting = getRandomElement(array);
       setSelectedPerson(randomGreeting);
       setLoading(false);
-    }, 2500);
+    }, 2000);
   };
 
   useEffect(() => {
@@ -335,8 +335,6 @@ export const App = () => {
 
             <motion.div
               key={selectedPerson.key}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
               style={{ textAlign: "center" }}
             >
@@ -373,24 +371,32 @@ export const App = () => {
                 width={160}
                 height={160}
               />
-              <Gap size={32} />
-              <img
-                alt={selectedPerson.name}
-                src={title}
-                style={{
-                  display: "block",
-                  margin: "0 auto",
-                }}
-                width={32}
-                height={24}
-              />
-              <Gap size={32} />
-              <Typography.Text
-                view="primary-large"
-                style={{ textAlign: "center" }}
-              >
-                {selectedPerson.text}
-              </Typography.Text>
+              {!loading && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 2 }}
+                >
+                  <Gap size={32} />
+                  <img
+                    alt={selectedPerson.name}
+                    src={title}
+                    style={{
+                      display: "block",
+                      margin: "0 auto",
+                    }}
+                    width={32}
+                    height={24}
+                  />
+                  <Gap size={32} />
+                  <Typography.Text
+                    view="primary-large"
+                    style={{ textAlign: "center" }}
+                  >
+                    {selectedPerson.text}
+                  </Typography.Text>
+                </motion.div>
+              )}
             </motion.div>
           </div>
 
