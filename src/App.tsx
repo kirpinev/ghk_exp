@@ -244,7 +244,7 @@ export const App = () => {
               weight="bold"
               style={{ textAlign: "center" }}
             >
-              На восьмое марта дарят всем подарки
+              На восьмое марта <br /> дарят всем подарки
             </Typography.TitleResponsive>
 
             <Gap size={8} />
