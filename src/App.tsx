@@ -209,7 +209,7 @@ export const App = () => {
       clearInterval(interval);
       const randomGreeting = getRandomElement(array);
       setSelectedPerson(randomGreeting);
-    }, 5000);
+    }, 2500);
   };
 
   useEffect(() => {
@@ -444,15 +444,32 @@ export const App = () => {
               >
                 Золотое Яблоко
               </Typography.Text>
-              <img
-                alt="Карта"
-                src={card}
-                style={{
-                  display: "block",
-                  margin: "auto auto",
-                  width: "100%",
+              <motion.div
+                initial={{ scale: 0.95 }}
+                animate={{
+                  scale: 1,
+                  opacity: 1,
+                  y: [-5, 5],
+                  rotate: [-3, 3],
                 }}
-              />
+                exit={{ scale: 0.95 }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut",
+                }}
+              >
+                <img
+                  alt="Карта"
+                  src={card}
+                  style={{
+                    display: "block",
+                    margin: "auto auto",
+                    width: "100%",
+                  }}
+                />
+              </motion.div>
             </motion.div>
           </div>
 
@@ -561,7 +578,7 @@ export const App = () => {
                 color="secondary"
                 style={{ textAlign: "center" }}
               >
-                Скоро подарок придет на почту!
+                Скоро подарок придет на телефон!
               </Typography.Text>
               <img
                 alt="Карта"
