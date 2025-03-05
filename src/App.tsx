@@ -535,7 +535,7 @@ export const App = () => {
                 applausePlay();
               }}
             >
-              Закончить
+              Далее
             </ButtonMobile>
           </div>
         </>
