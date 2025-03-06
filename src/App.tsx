@@ -369,7 +369,7 @@ export const App = () => {
                     </Typography.Text>
                   ) : (
                     <Typography.Text view="primary-small">
-                      {timeLeft?.days && `${timeLeft.days} день `}{timeLeft?.hours}:{timeLeft?.minutes}:{timeLeft?.seconds}
+                      {Boolean(timeLeft?.days) && `${timeLeft?.days} день `}{timeLeft?.hours}:{timeLeft?.minutes}:{timeLeft?.seconds}
                     </Typography.Text>
                   )}
                 </>
