@@ -538,7 +538,7 @@ export const App = () => {
                 Держи букетик
               </Typography.Text>
               <img
-                alt="Карта"
+                alt="Букетик"
                 src={content}
                 style={{
                   display: "block",
@@ -560,7 +560,7 @@ export const App = () => {
                 applausePlay();
               }}
             >
-              Далее
+              Это не все!
             </ButtonMobile>
           </div>
         </>
