@@ -34,7 +34,7 @@ import useSound from "use-sound";
 import { Fireworks } from "@fireworks-js/react";
 import { usePreloadImages } from "./use-preload-images.ts";
 
-const targetDate = "2025-03-09 00:00:00";
+const targetDate = "2025-03-08 00:00:00";
 
 interface Person {
   name: string;
@@ -369,7 +369,7 @@ export const App = () => {
                     </Typography.Text>
                   ) : (
                     <Typography.Text view="primary-small">
-                      {timeLeft?.hours}:{timeLeft?.minutes}:{timeLeft?.seconds}
+                      {timeLeft?.days && `${timeLeft.days}д `}{timeLeft?.hours}:{timeLeft?.minutes}:{timeLeft?.seconds}
                     </Typography.Text>
                   )}
                 </>
