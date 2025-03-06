@@ -34,7 +34,7 @@ import useSound from "use-sound";
 import { Fireworks } from "@fireworks-js/react";
 import { usePreloadImages } from "./use-preload-images.ts";
 
-const targetDate = "2025-03-05 15:54:00";
+const targetDate = "2025-03-08 00:00:00";
 
 interface Person {
   name: string;
@@ -188,7 +188,7 @@ export const App = () => {
   const calculateTimeLeft = () => {
     // @ts-ignore
     const difference = new Date(targetDate) - new Date();
-    if (difference <= 0) return null; // Если дата прошла, возвращаем null
+    if (difference <= 0) return null;
 
     return {
       days: Math.floor(difference / (1000 * 60 * 60 * 24)),
@@ -232,6 +232,36 @@ export const App = () => {
       setSelectedPerson(randomGreeting);
       setLoading(false);
     }, 2000);
+  };
+
+  const continueClick = () => {
+    window.gtag("event", "women_day_first_step", {
+      variant_name: "ghk_exp",
+    });
+  };
+
+  const oneMoreClick = () => {
+    window.gtag("event", "women_day_second_step", {
+      variant_name: "ghk_exp",
+    });
+  };
+
+  const toPresentClick = () => {
+    window.gtag("event", "women_day_third_step", {
+      variant_name: "ghk_exp",
+    });
+  };
+
+  const getPresentClick = () => {
+    window.gtag("event", "women_day_fourth_step", {
+      variant_name: "ghk_exp",
+    });
+  };
+
+  const thatIsNotItClick = () => {
+    window.gtag("event", "women_day_fifth_step", {
+      variant_name: "ghk_exp",
+    });
   };
 
   usePreloadImages(images);
@@ -326,7 +356,10 @@ export const App = () => {
           <div className={appSt.bottomBtn}>
             <ButtonMobile
               block
-              onClick={() => setStep(2)}
+              onClick={() => {
+                setStep(2);
+                continueClick();
+              }}
               view="primary"
               hint={
                 <>
@@ -432,6 +465,7 @@ export const App = () => {
                 loading={loading}
                 onClick={() => {
                   setStep(3);
+                  toPresentClick();
                 }}
               >
                 К Подарку
@@ -441,7 +475,10 @@ export const App = () => {
                 block
                 view="primary"
                 size="l"
-                onClick={handleClick}
+                onClick={() => {
+                  handleClick();
+                  oneMoreClick();
+                }}
                 loading={loading}
                 disabled={loading}
               >
@@ -522,6 +559,7 @@ export const App = () => {
               onClick={() => {
                 setStep(4);
                 laughPlay();
+                getPresentClick();
               }}
               style={{ backgroundColor: "#D6C1B7", color: "black" }}
             >
@@ -579,6 +617,7 @@ export const App = () => {
                 setStep(5);
                 stopLaugh();
                 applausePlay();
+                thatIsNotItClick();
               }}
             >
               Это не все!
