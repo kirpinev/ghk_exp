@@ -529,6 +529,14 @@ export const App = () => {
               >
                 Это был эксперимент
               </Typography.TitleResponsive>
+              <Gap size={8} />
+              <Typography.Text
+                view="primary-medium"
+                color="secondary"
+                style={{ textAlign: "center" }}
+              >
+                Держи букетик
+              </Typography.Text>
               <img
                 alt="Карта"
                 src={content}
